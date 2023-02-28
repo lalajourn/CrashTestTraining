@@ -2,4 +2,9 @@
 
 Ответ:
 
+SELECT comment_content, comment_author
+FROM wp_comments
+WHERE comment_author = 'admin';
+
+*****
 
