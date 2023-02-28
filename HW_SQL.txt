@@ -12,3 +12,9 @@ WHERE comment_author = 'admin';
 
 Ответ: 
 
+SELECT post_title, comment_count
+FROM wp_posts
+WHERE comment_count BETWEEN 1 AND 5;
+
+*****
+
