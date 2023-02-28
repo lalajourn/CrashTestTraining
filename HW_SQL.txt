@@ -28,3 +28,7 @@ LEFT JOIN wp_comments ON wp_posts.ID = wp_comments.comment_post_ID;
 
 *****
 
+4. Найти все комментарии(comment_content) и заголовки постов, у которых буква “e” в текст комментария является третьей с конца.
+
+Ответ: 
+
