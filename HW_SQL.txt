@@ -22,3 +22,9 @@ WHERE comment_count BETWEEN 1 AND 5;
 
 Ответ: 
 
+SELECT post_title, comment_content
+FROM wp_posts
+LEFT JOIN wp_comments ON wp_posts.ID = wp_comments.comment_post_ID;
+
+*****
+
