@@ -43,3 +43,8 @@ WHERE comment_content LIKE '%e__';
 
 Ответ: 
 
+SELECT name, post_title, comment_content 
+FROM wp_posts
+INNER JOIN wp_comments ON wp_posts.ID = wp_comments.comment_post_ID
+CROSS JOIN wp_terms
+WHERE comment_post_ID = 44 AND term_id = 4;
