@@ -32,3 +32,9 @@ LEFT JOIN wp_comments ON wp_posts.ID = wp_comments.comment_post_ID;
 
 Ответ: 
 
+SELECT post_title, comment_content
+FROM wp_posts
+INNER JOIN wp_comments ON wp_posts.ID = wp_comments.comment_post_ID
+WHERE comment_content LIKE '%e__';
+
+*****
