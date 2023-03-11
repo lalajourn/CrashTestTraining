@@ -396,6 +396,202 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "4_Rand_Comment_without_author",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"function CreateGuid() {\r",
+							"    function _p8(s) {\r",
+							"        let p = (Math.random().toString(16) + \"000000000\").substr(2,8);\r",
+							"        return s ? \"-\" + p.substr(0,4) + \"-\" + p.substr(4,4) : p ;\r",
+							"    }\r",
+							"    return _p8() + _p8(true) + _p8(true) + _p8();\r",
+							"}\r",
+							"\r",
+							"let comment = CreateGuid();\r",
+							"\r",
+							"pm.environment.set(\"comment\", comment); "
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Error when sending a comment, without an author\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Ошибка при отправке комментария\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "author",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "hello@mail.ru",
+							"type": "text"
+						},
+						{
+							"key": "url",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "comment",
+							"value": "{{comment}}",
+							"type": "text"
+						},
+						{
+							"key": "submit",
+							"value": "Отправить комментарий",
+							"type": "text"
+						},
+						{
+							"key": "comment_post_ID",
+							"value": "62",
+							"type": "text"
+						},
+						{
+							"key": "comment_parent",
+							"value": "0",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://a0406371.xsph.ru/wp-comments-post.php",
+					"protocol": "http",
+					"host": [
+						"a0406371",
+						"xsph",
+						"ru"
+					],
+					"path": [
+						"wp-comments-post.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4_Rand_Comment_without_email",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"function CreateGuid() {\r",
+							"    function _p8(s) {\r",
+							"        let p = (Math.random().toString(16) + \"000000000\").substr(2,8);\r",
+							"        return s ? \"-\" + p.substr(0,4) + \"-\" + p.substr(4,4) : p ;\r",
+							"    }\r",
+							"    return _p8() + _p8(true) + _p8(true) + _p8();\r",
+							"}\r",
+							"\r",
+							"let comment = CreateGuid();\r",
+							"\r",
+							"pm.environment.set(\"comment\", comment); "
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Error when sending a comment, without an email\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Ошибка при отправке комментария\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "author",
+							"value": "Helen",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "url",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "comment",
+							"value": "{{comment}}",
+							"type": "text"
+						},
+						{
+							"key": "submit",
+							"value": "Отправить комментарий",
+							"type": "text"
+						},
+						{
+							"key": "comment_post_ID",
+							"value": "62",
+							"type": "text"
+						},
+						{
+							"key": "comment_parent",
+							"value": "0",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://a0406371.xsph.ru/wp-comments-post.php",
+					"protocol": "http",
+					"host": [
+						"a0406371",
+						"xsph",
+						"ru"
+					],
+					"path": [
+						"wp-comments-post.php"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"variable": [
