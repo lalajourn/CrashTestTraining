@@ -592,6 +592,87 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "5_New_Post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "4262",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Helen.chis",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-WP-Nonce",
+						"value": "46ee602406",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "wordpress_logged_in_d94781a6c236d8a9226d6a7d5806c065=Helen.chis%7C1678720641%7CvVfpoPvN8mL2qa1Ow5jOUk84zYmOGsRHkiBvfmBQm0y%7C60736d05c8e4c3a71fa1dfb17a4d5486fb82d9506da2047944a458f923e73cb7",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"post_id\": \"45\",\r\n    \"step_id\": \"1\",\r\n    \"priority\": \"2normal\",\r\n    \"assignees\": [\"5\", \"6\"],\r\n    \"assign_to_all\": false,\r\n    \"comments\": \"Test Comments\"\r\n}\r\n\r\n\r\n// http://a0406371.xsph.ru/wp-admin/post.php?post=381&action=edit\r\n\r\n// http://a0406371.xsph.ru/wp-json/wp/v2/taxonomies/post_tag?context=edit&_locale=user",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://a0406371.xsph.ru/wp-admin/post-new.php",
+					"protocol": "http",
+					"host": [
+						"a0406371",
+						"xsph",
+						"ru"
+					],
+					"path": [
+						"wp-admin",
+						"post-new.php"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"variable": [
